@@ -18,10 +18,6 @@ function! SelectaFile()
 endfunction
 
 function! SelectaBuffer()
-  let buffers = []
-  for i in range(1, bufnr("$"))
-    call add(buffers, bufname(i))
-  endfor
-  let options = join(buffers, "\n")
-  call SelectaCommand('echo "' . options . '"', "", ":e")
+  let buffers = map(range(1, bufnr("$")), 'bufname(bufnr(v:val))')
+  call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":e")
 endfunction
