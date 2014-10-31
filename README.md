@@ -6,6 +6,10 @@ Add the following to your vimrc to use selecta:
 
     " Find all files in all non-dot directories starting in the working directory.
     " Fuzzy select one of those. Open the selected file with :e.
-    nnoremap <leader>e :call SelectaCommand("find * -type f", "", ":e")<cr>
+    nnoremap <leader>e :call SelectaFile()<cr>
+
+    " Find all buffers that have been opened.
+    " Fuzzy select one of those. Open the selected file with :e.
+    nnoremap <leader>b :call SelectaBuffer()<cr>
 
 All credit goes to @garybernhardt

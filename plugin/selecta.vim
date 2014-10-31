@@ -12,3 +12,16 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   redraw!
   exec a:vim_command . " " . selection
 endfunction
+
+function! SelectaFile()
+  call SelectaCommand("find * -type f", "", ":e")
+endfunction
+
+function! SelectaBuffer()
+  let buffers = []
+  for i in range(1, bufnr("$"))
+    call add(buffers, bufname(i))
+  endfor
+  let options = join(buffers, "\n")
+  call SelectaCommand('echo "' . options . '"', "", ":e")
+endfunction
