@@ -13,11 +13,20 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   exec a:vim_command . " " . selection
 endfunction
 
+function! SelectaFromList(choices, selecta_args, vim_command)
+  call SelectaCommand('echo "' . join(a:choices, "\n") . '"', a:selecta_args, a:vim_command)
+endfunction
+
 function! SelectaFile()
   call SelectaCommand("find * -type f", "", ":e")
 endfunction
 
 function! SelectaBuffer()
-  let buffers = map(range(1, bufnr("$")), 'bufname(bufnr(v:val))')
-  call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":e")
+  let buffers = filter(map(range(1, bufnr("$")), 'bufname(bufnr(v:val))'), 'v:val != ""')
+  call SelectaFromList(buffers, "", ":e")
+endfunction
+
+function! SelectaCommandFromHistory()
+  let history = filter(map(range(1, histnr("cmd")), 'histget("cmd", v:val)'), 'v:val != ""')
+  call SelectaFromList(history, "", ":")
 endfunction
