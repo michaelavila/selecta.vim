@@ -1,5 +1,5 @@
 " Always ignore the following directories
-let ignore = [".git"]
+let ignore = [".git/"]
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
@@ -22,7 +22,7 @@ function! SelectaFromList(choices, selecta_args, vim_command)
 endfunction
 
 function! SelectaFile()
-  let excludes = join(map(g:ignore, '"-not -path \"*" . v:val . "/*\""'), " ")
+  let excludes = join(map(g:ignore, '"-not -path \"*" . v:val . "*\""'), " ")
   call SelectaCommand('find . -type f ' . excludes, '', ':e')
 endfunction
 
@@ -32,6 +32,6 @@ function! SelectaBuffer()
 endfunction
 
 function! SelectaHistoryCommand()
-  let history = map(range(2, histnr("cmd")), 'histget("cmd", v:val)')
+  let history = map(range(1, histnr("cmd")), 'histget("cmd", v:val)')
   call SelectaFromList(history, "", ":")
 endfunction
