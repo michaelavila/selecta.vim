@@ -1,3 +1,6 @@
+" Always ignore the following directories
+let ignore = [".git"]
+
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
@@ -14,19 +17,21 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
 endfunction
 
 function! SelectaFromList(choices, selecta_args, vim_command)
-  call SelectaCommand('echo "' . join(a:choices, "\n") . '"', a:selecta_args, a:vim_command)
+  let non_blank_choices = filter(a:choices, 'v:val !=""')
+  call SelectaCommand('echo "' . join(non_blank_choices, "\n") . '"', a:selecta_args, a:vim_command)
 endfunction
 
 function! SelectaFile()
-  call SelectaCommand("find * -type f", "", ":e")
+  let excludes = join(map(g:ignore, '"-not -path \"*" . v:val . "/*\""'), " ")
+  call SelectaCommand('find . -type f ' . excludes, '', ':e')
 endfunction
 
 function! SelectaBuffer()
-  let buffers = filter(map(range(1, bufnr("$")), 'bufname(bufnr(v:val))'), 'v:val != ""')
+  let buffers = map(range(1, bufnr("$")), 'bufname(bufnr(v:val))')
   call SelectaFromList(buffers, "", ":e")
 endfunction
 
-function! SelectaCommandFromHistory()
-  let history = filter(map(range(1, histnr("cmd")), 'histget("cmd", v:val)'), 'v:val != ""')
+function! SelectaHistoryCommand()
+  let history = map(range(2, histnr("cmd")), 'histget("cmd", v:val)')
   call SelectaFromList(history, "", ":")
 endfunction

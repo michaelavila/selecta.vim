@@ -14,6 +14,6 @@ Add the following to your vimrc to use selecta:
 
     " Find previously run commands.
     " Fuzzy select one of those. Run that command with :
-    nnoremap <leader>h :call SelectaCommandFromHistory()<cr>
+    nnoremap <leader>h :call SelectaHistoryCommand()<cr>
 
 All credit goes to @garybernhardt
