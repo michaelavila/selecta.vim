@@ -9,7 +9,7 @@ Add the following to your vimrc to use selecta:
     nnoremap <leader>e :call SelectaFile()<cr>
 
     " Find all buffers that have been opened.
-    " Fuzzy select one of those. Open the selected file with :e.
+    " Fuzzy select one of those. Open the selected file with :b.
     nnoremap <leader>b :call SelectaBuffer()<cr>
 
     " Find previously run commands.

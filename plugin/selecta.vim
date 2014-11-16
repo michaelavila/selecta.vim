@@ -28,7 +28,7 @@ endfunction
 
 function! SelectaBuffer()
   let buffers = map(range(1, bufnr("$")), 'bufname(bufnr(v:val))')
-  call SelectaFromList(buffers, "", ":e")
+  call SelectaFromList(buffers, "", ":b")
 endfunction
 
 function! SelectaHistoryCommand()
