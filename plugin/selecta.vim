@@ -14,12 +14,14 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
     return
   endtry
   redraw!
-  exec a:vim_command . " " . selection
+  if selection != ''
+    exec a:vim_command . " " . selection
+  endif
 endfunction
 
 function! SelectaFromList(choices, selecta_args, vim_command)
   let non_blank_choices = filter(a:choices, 'v:val !=""')
-  call SelectaCommand('echo "' . join(non_blank_choices, "\n") . '"', a:selecta_args, a:vim_command)
+  call SelectaCommand('echo "' . escape(join(non_blank_choices, "\n"), '"') . '"', a:selecta_args, a:vim_command)
 endfunction
 
 function! SelectaFile()
