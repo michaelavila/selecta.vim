@@ -1,0 +1,67 @@
+*selecta.txt* functionality for fuzzy-selecting using selecta
+                                                                     
+ @@@@@@   @@@@@@@@  @@@       @@@@@@@@   @@@@@@@  @@@@@@@   @@@@@@   ~
+@@@@@@@   @@@@@@@@  @@@       @@@@@@@@  @@@@@@@@  @@@@@@@  @@@@@@@@  ~
+!@@       @@!       @@!       @@!       !@@         @@!    @@!  @@@  ~
+!@!       !@!       !@!       !@!       !@!         !@!    !@!  @!@  ~
+!!@@!!    @!!!:!    @!!       @!!!:!    !@!         @!!    @!@!@!@!  ~
+ !!@!!!   !!!!!:    !!!       !!!!!:    !!!         !!!    !!!@!!!!  ~
+     !:!  !!:       !!:       !!:       :!!         !!:    !!:  !!!  ~
+    !:!   :!:        :!:      :!:       :!:         :!:    :!:  !:!  ~
+:::: ::    :: ::::   :: ::::   :: ::::   ::: :::     ::    ::   :::  ~
+:: : :    : :: ::   : :: : :  : :: ::    :: :: :     :      :   : :  ~
+
+          Functionality for fuzzy-selecting using selecta.
+    Includes fuzzy-selecting files, buffers, and command history.
+
+INTRODUCTION                                                 *selecta*
+
+This plugin is a tool for fuzzy-selecting things in vim. Examples of
+things you can fuzzy-select include files, buffers, and commands from
+the history. This is all accomplished using the program `selecta`,
+which can be found at https://github.com/garybernhardt/selecta.
+
+USAGE                                                  *selecta-usage*
+
+Integrate selecta.vim by mapping to the Selecta* functions. Add any or
+all of the following to your `vimrc` file:
+
+    " Find all files in all non-dot directories starting in the
+    " working directory. Fuzzy select one of those. Open the selected
+    " file with :e.
+    nnoremap <leader>e :call SelectaFile()<cr>
+
+    " Find all buffers that have been opened.
+    " Fuzzy select one of those. Open the selected file with :b.
+    nnoremap <leader>b :call SelectaBuffer()<cr>
+
+    " Find previously run commands.
+    " Fuzzy select one of those. Run that command with :
+    nnoremap <leader>h :call SelectaHistoryCommand()<cr>
+
+ISSUES                                                *selecta-issues*
+
+File issues here: https://github.com/michaelavila/selecta.vim/issues
+
+LICENSE                                              *selecta-license*
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
