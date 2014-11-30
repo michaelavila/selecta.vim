@@ -37,3 +37,7 @@ function! SelectaHistoryCommand()
   let history = map(range(1, histnr("cmd")), 'histget("cmd", v:val)')
   call SelectaFromList(history, "", ":")
 endfunction
+
+command! SelectaFile call SelectaFile()
+command! SelectaBuffer call SelectaBuffer()
+command! SelectaHistoryCommand call SelectaHistoryCommand()

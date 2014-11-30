@@ -39,6 +39,23 @@ all of the following to your `vimrc` file:
     " Fuzzy select one of those. Run that command with :
     nnoremap <leader>h :call SelectaHistoryCommand()<cr>
 
+COMMANDS                                            *selecta-commands*
+
+                                                         *SelectaFile*
+:SelectaFile              Find all files in all non-git directories
+                          starting in the working directory. Fuzzy
+                          select one of those. Open the selected file
+                          with :e
+
+                                                       *SelectaBuffer*
+:SelectaBuffer            Find all buffers that have been opened.
+                          Fuzzy select one of those. Open the selected
+                          file with :b
+
+                                               *SelectaHistoryCommand*
+:SelectaHistoryCommand    Find previously run commands. Fuzzy select
+                          one of those. Run that command with :
+
 ISSUES                                                *selecta-issues*
 
 File issues here: https://github.com/michaelavila/selecta.vim/issues
