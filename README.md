@@ -16,4 +16,6 @@ Add the following to your vimrc to use selecta:
     " Fuzzy select one of those. Run that command with :
     nnoremap <leader>h :SelectaHistoryCommand<cr>
 
+If you need information about selecta.vim you can run `:help selecta` from within vim.
+
 All credit goes to @garybernhardt
