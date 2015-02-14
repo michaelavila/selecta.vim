@@ -8,6 +8,12 @@ Add the following to your vimrc to use selecta:
     " Fuzzy select one of those. Open the selected file with :e.
     nnoremap <leader>e :SelectaFile<cr>
 
+    " As above, but will open in a :split
+    nnoremap <leader>s :SelectaSplit<cr>
+
+    " As above, but will open in a :vsplit
+    nnoremap <leader>v :SelectaVsplit<cr>
+
     " Find all buffers that have been opened.
     " Fuzzy select one of those. Open the selected file with :b.
     nnoremap <leader>b :SelectaBuffer<cr>
