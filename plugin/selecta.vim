@@ -28,6 +28,14 @@ function! SelectaFile()
   call SelectaCommand('find . -type f ' . g:excludes, '', ':e')
 endfunction
 
+function! SelectaVsplit()
+  call SelectaCommand('find . -type f ' . g:excludes, '', ':vsplit') 
+endfunction
+
+function! SelectaSplit()
+  call SelectaCommand('find . -type f ' . g:excludes, '', ':split') 
+endfunction
+
 function! SelectaBuffer()
   let buffers = map(range(1, bufnr("$")), 'bufname(bufnr(v:val))')
   call SelectaFromList(buffers, "", ":b")
@@ -39,5 +47,8 @@ function! SelectaHistoryCommand()
 endfunction
 
 command! SelectaFile call SelectaFile()
+command! SelectaSplit call SelectaSplit()
+command! SelectaVsplit call SelectaVsplit()
 command! SelectaBuffer call SelectaBuffer()
 command! SelectaHistoryCommand call SelectaHistoryCommand()
+
