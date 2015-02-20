@@ -1,7 +1,11 @@
 " Always ignore the following directories
-let SelectaIgnore = [".git/"]
+if !exists("g:SelectaIgnore")
+  let SelectaIgnore = [".git/"]
+endif
 " Use this as the root for finding files
-let SelectaFindRoot = "."
+if !exists("g:SelectaFindRoot")
+  let SelectaFindRoot = "."
+endif
 
 function! GetFindExcludes()
   return join(map(copy(g:SelectaIgnore), '"-not -path \"*" . v:val . "*\""'))
