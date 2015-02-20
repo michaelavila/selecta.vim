@@ -1,5 +1,7 @@
 " Always ignore the following directories
 let SelectaIgnore = [".git/"]
+" Use this as the root for finding files
+let SelectaFindRoot = "."
 
 function! GetFindExcludes()
   return join(map(copy(g:SelectaIgnore), '"-not -path \"*" . v:val . "*\""'))
@@ -28,15 +30,15 @@ function! SelectaFromList(choices, selecta_args, vim_command)
 endfunction
 
 function! SelectaFile()
-  call SelectaCommand('find . -type f ' . GetFindExcludes(), '', ':e')
+  call SelectaCommand('find ' . g:SelectaFindRoot . ' -type f ' . GetFindExcludes(), '', ':e')
 endfunction
 
 function! SelectaVsplit()
-  call SelectaCommand('find . -type f ' . GetFindExcludes(), '', ':vsplit') 
+  call SelectaCommand('find ' . g:SelectaFindRoot . ' -type f ' . GetFindExcludes(), '', ':vsplit') 
 endfunction
 
 function! SelectaSplit()
-  call SelectaCommand('find . -type f ' . GetFindExcludes(), '', ':split') 
+  call SelectaCommand('find ' . g:SelectaFindRoot . ' -type f ' . GetFindExcludes(), '', ':split') 
 endfunction
 
 function! SelectaBuffer()
