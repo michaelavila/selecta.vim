@@ -1,8 +1,8 @@
 " Always ignore the following directories
-let ignore = [".git/"]
+let SelectaIgnore = [".git/"]
 
 function! GetFindExcludes()
-  return join(map(copy(g:ignore), '"-not -path \"*" . v:val . "*\""'))
+  return join(map(copy(g:SelectaIgnore), '"-not -path \"*" . v:val . "*\""'))
 endfunction
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
