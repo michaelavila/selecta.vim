@@ -56,6 +56,23 @@ COMMANDS                                            *selecta-commands*
 :SelectaHistoryCommand    Find previously run commands. Fuzzy select
                           one of those. Run that command with :
 
+VARIABLES                                          *selecta-variables*
+
+                                                       *SelectaIgnore*
+Values: a list of partial file names
+Default: [".git/"]
+
+This variable lists path patterns to ignore when finding files. A
+file is excluded from the selection list if it includes any of these
+strings anywhere in the path. Wildcards are accepted as per find(1).
+
+                                                     *SelectaFindRoot*
+Value: a file path
+Default: "."
+
+This variable is used as the root for all find commands.
+
+
 ISSUES                                                *selecta-issues*
 
 File issues here: https://github.com/michaelavila/selecta.vim/issues
