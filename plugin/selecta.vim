@@ -29,7 +29,8 @@ function! SelectaFile()
 endfunction
 
 function! SelectaBuffer()
-  let buffers = map(range(1, bufnr("$")), 'bufname(bufnr(v:val))')
+  let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
+  let buffers = map(bufnrs, 'bufname(v:val)')
   call SelectaFromList(buffers, "", ":b")
 endfunction
 
