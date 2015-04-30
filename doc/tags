@@ -1,9 +1,12 @@
 SelectaBuffer	selecta.txt	/*SelectaBuffer*
 SelectaFile	selecta.txt	/*SelectaFile*
+SelectaFindRoot	selecta.txt	/*SelectaFindRoot*
 SelectaHistoryCommand	selecta.txt	/*SelectaHistoryCommand*
+SelectaIgnore	selecta.txt	/*SelectaIgnore*
 selecta	selecta.txt	/*selecta*
 selecta-commands	selecta.txt	/*selecta-commands*
 selecta-issues	selecta.txt	/*selecta-issues*
 selecta-license	selecta.txt	/*selecta-license*
 selecta-usage	selecta.txt	/*selecta-usage*
+selecta-variables	selecta.txt	/*selecta-variables*
 selecta.txt	selecta.txt	/*selecta.txt*
