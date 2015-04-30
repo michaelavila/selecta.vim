@@ -1,6 +1,9 @@
 " Always ignore the following directories
 if !exists("g:SelectaIgnore")
   let SelectaIgnore = [".git/"]
+  if filereadable(".gitignore")
+    let SelectaIgnore = SelectaIgnore + readfile(".gitignore")
+  endif
 endif
 " Use this as the root for finding files
 if !exists("g:SelectaFindRoot")
