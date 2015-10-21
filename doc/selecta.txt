@@ -47,10 +47,32 @@ COMMANDS                                            *selecta-commands*
                           select one of those. Open the selected file
                           with :e
 
+                                                        *SelectaSplit*
+:SelectaSplit             Find all files in all non-git directories
+                          starting in the working directory. Fuzzy
+                          select one of those. Open the selected file
+                          with :split
+
+                                                       *SelectaVsplit*
+:SelectaVsplit            Find all files in all non-git directories
+                          starting in the working directory. Fuzzy
+                          select one of those. Open the selected file
+                          with :vsplit
+
                                                        *SelectaBuffer*
 :SelectaBuffer            Find all buffers that have been opened.
                           Fuzzy select one of those. Open the selected
                           file with :b
+
+                                                  *SelectaSplitBuffer*
+:SelectaSplitBuffer       Find all buffers that have been opened.
+                          Fuzzy select one of those. Open the selected
+                          file with :split
+
+                                                 *SelectaVsplitBuffer*
+:SelectaVsplitBuffer      Find all buffers that have been opened.
+                          Fuzzy select one of those. Open the selected
+                          file with :vsplit
 
                                                *SelectaHistoryCommand*
 :SelectaHistoryCommand    Find previously run commands. Fuzzy select
