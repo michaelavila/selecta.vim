@@ -45,10 +45,25 @@ function! SelectaSplit()
   call SelectaCommand('find ' . g:SelectaFindRoot . ' -type f ' . GetFindExcludes(), '', ':split') 
 endfunction
 
-function! SelectaBuffer()
+function! SelectaGetBuffers()
   let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
   let buffers = map(bufnrs, 'bufname(v:val)')
+  return buffers
+endfunction
+
+function! SelectaBuffer()
+  let buffers = SelectaGetBuffers()
   call SelectaFromList(buffers, "", ":b")
+endfunction
+
+function! SelectaSplitBuffer()
+  let buffers = SelectaGetBuffers()
+  call SelectaFromList(buffers, "", ":split")
+endfunction
+
+function! SelectaVsplitBuffer()
+  let buffers = SelectaGetBuffers()
+  call SelectaFromList(buffers, "", "vsplit")
 endfunction
 
 function! SelectaHistoryCommand()
@@ -60,5 +75,7 @@ command! SelectaFile call SelectaFile()
 command! SelectaSplit call SelectaSplit()
 command! SelectaVsplit call SelectaVsplit()
 command! SelectaBuffer call SelectaBuffer()
+command! SelectaSplitBuffer call SelectaSplitBuffer()
+command! SelectaVsplitBuffer call SelectaVsplitBuffer()
 command! SelectaHistoryCommand call SelectaHistoryCommand()
 
