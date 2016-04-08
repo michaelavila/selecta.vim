@@ -59,6 +59,12 @@ COMMANDS                                            *selecta-commands*
                           select one of those. Open the selected file
                           with :vsplit
 
+                                                      *SelectaTabedit*
+:SelectaTabedit           Find all files in all non-git directories
+                          starting in the working directory. Fuzzy
+                          select one of those. Open the selected file
+                          with :tabedit
+
                                                        *SelectaBuffer*
 :SelectaBuffer            Find all buffers that have been opened.
                           Fuzzy select one of those. Open the selected

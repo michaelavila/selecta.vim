@@ -14,6 +14,9 @@ Add the following to your vimrc to use selecta:
     " As above, but will open in a :vsplit
     nnoremap <leader>v :SelectaVsplit<cr>
 
+    " As above, but will open in a :tabedit
+    nnoremap <leader>t :SelectaTabedit<cr>
+
     " Find all buffers that have been opened.
     " Fuzzy select one of those. Open the selected file with :b.
     nnoremap <leader>b :SelectaBuffer<cr>
